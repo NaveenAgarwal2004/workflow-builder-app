@@ -53,7 +53,7 @@ npm install
 npm start
 ```
 
-The app will open at [http://localhost:3000](http://localhost:3000)
+The app will open at [https://workflow-builder-app-nine.vercel.app/](https://workflow-builder-app-nine.vercel.app/)
 
 ### Build for Production
 
