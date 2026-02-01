@@ -348,9 +348,9 @@ MIT
 ## 👤 Author
 
 **Your Name**
-- LinkedIn: [your-linkedin](https://linkedin.com/in/yourprofile)
-- Portfolio: [your-portfolio.com](https://your-portfolio.com)
-- Email: your.email@example.com
+- LinkedIn: [your-linkedin](https://linkedin.com/in/naveen-agar)
+- Portfolio: [your-portfolio.com](https://naveenagarwal-portfolio.vercel.app/)
+- Email: naveenagarwal7624@gmail.com
 
 ---
 
