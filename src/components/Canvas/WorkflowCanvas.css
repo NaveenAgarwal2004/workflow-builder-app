@@ -1,0 +1,128 @@
+/* ============================================================================
+   WORKFLOW CANVAS - Enhanced Pure CSS Styles
+   ============================================================================ */
+
+/* Canvas Container */
+.workflow-canvas-container {
+  position: fixed;
+  top: 4.5rem;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: auto;
+  background: var(--color-bg-canvas);
+}
+
+/* Canvas */
+.workflow-canvas {
+  position: relative;
+  margin: 2rem auto;
+  min-width: 100%;
+  min-height: calc(100vh - 4.5rem);
+}
+
+/* Connection Lines SVG */
+.connection-lines {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.connection-group {
+  transition: all var(--transition-base);
+}
+
+.connection-line-shadow {
+  transition: all var(--transition-slow);
+}
+
+.connection-line {
+  transition: all var(--transition-slow);
+}
+
+.connection-group:hover .connection-line {
+  stroke-width: 3.5;
+  filter: url(#glowStrong);
+}
+
+.connection-group:hover .connection-line-shadow {
+  stroke-width: 4.5;
+  stroke: rgba(0, 0, 0, 0.4);
+}
+
+.branch-label-group {
+  transition: all var(--transition-base);
+}
+
+.connection-group:hover .branch-label-group rect {
+  stroke-width: 2;
+  stroke: rgba(99,102,241,0.9);
+}
+
+.connection-group:hover .branch-label-group text {
+  font-weight: 700;
+}
+
+/* Scrollbar Styling */
+.workflow-canvas-container::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+.workflow-canvas-container::-webkit-scrollbar-track {
+  background: var(--color-bg-canvas);
+}
+
+.workflow-canvas-container::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #334155 0%, #475569 100%);
+  border-radius: 7px;
+  border: 2px solid var(--color-bg-canvas);
+}
+
+.workflow-canvas-container::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #475569 0%, #64748b 100%);
+}
+
+.workflow-canvas-container::-webkit-scrollbar-corner {
+  background: var(--color-bg-canvas);
+}
+
+/* Empty State */
+.workflow-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 400px;
+  color: var(--color-text-muted);
+  gap: 1.25rem;
+}
+
+.workflow-empty__icon {
+  font-size: 5rem;
+  opacity: 0.2;
+  animation: floatIcon 3s ease-in-out infinite;
+}
+
+@keyframes floatIcon {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.workflow-empty__text {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.workflow-empty__hint {
+  font-size: 0.9375rem;
+  opacity: 0.7;
+}

@@ -1,0 +1,444 @@
+/* ============================================================================
+   NODE COMPONENTS - Enhanced Pure CSS Styles
+   ============================================================================ */
+
+/* Node Wrapper */
+.node-wrapper {
+  position: absolute;
+  transition: transform var(--transition-slow) cubic-bezier(0.34, 1.56, 0.64, 1);
+  animation: nodeEnter var(--transition-base) cubic-bezier(0.34, 1.56, 0.64, 1);
+  z-index: 10;
+  will-change: transform;
+}
+
+@keyframes nodeEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+.node-wrapper--selected .node {
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.6);
+  transform: scale(1.02);
+}
+
+/* Base Node Styles */
+.node {
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  will-change: transform;
+}
+
+.node:hover {
+  transform: translateY(-3px);
+  filter: brightness(1.1);
+}
+
+.node::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  opacity: 0;
+  transition: opacity var(--transition-base);
+  pointer-events: none;
+}
+
+.node:hover::before {
+  opacity: 1;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+}
+
+.node__content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.625rem;
+  padding: 1rem 1.25rem;
+  z-index: 1;
+}
+
+.node__icon {
+  font-size: 1.375rem;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+}
+
+.node__label {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text);
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+/* ============================================================================
+   START NODE - Enhanced gradient pill
+   ============================================================================ */
+
+.node--start {
+  width: 220px;
+  height: 88px;
+  background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
+  border-radius: 44px;
+  box-shadow: 
+    0 4px 12px rgba(99, 102, 241, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.node--start::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+  border-radius: 44px 44px 0 0;
+}
+
+.node--start:hover {
+  box-shadow: 
+    0 8px 24px rgba(99, 102, 241, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.node--start .node__icon {
+  font-size: 1.5rem;
+}
+
+/* ============================================================================
+   ACTION NODE - Modern card with accent
+   ============================================================================ */
+
+.node--action {
+  width: 220px;
+  height: 88px;
+  background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(30, 41, 59, 0.7) 100%);
+  backdrop-filter: blur(12px);
+  border-radius: 12px;
+  box-shadow: 
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-primary);
+  position: relative;
+  overflow: hidden;
+}
+
+.node--action::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -4px;
+  width: 4px;
+  height: 100%;
+  background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  box-shadow: 0 0 12px rgba(99, 102, 241, 0.5);
+}
+
+.node--action:hover {
+  box-shadow: 
+    0 8px 20px rgba(0, 0, 0, 0.4),
+    0 0 0 1px rgba(99, 102, 241, 0.3);
+  border-left-color: var(--color-secondary);
+}
+
+/* ============================================================================
+   BRANCH NODE - Rotated diamond with gradient
+   ============================================================================ */
+
+.node--branch {
+  width: 130px;
+  height: 130px;
+  background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #c4b5fd 100%);
+  transform: rotate(45deg);
+  border-radius: 12px;
+  box-shadow: 
+    0 6px 16px rgba(139, 92, 246, 0.4),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.node--branch::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 50%;
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+}
+
+.node--branch:hover {
+  box-shadow: 
+    0 10px 24px rgba(139, 92, 246, 0.6),
+    0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.node__branch-inner {
+  transform: rotate(-45deg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.node--branch .node__label {
+  max-width: 90px;
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.node--branch .node__icon {
+  font-size: 1.25rem;
+}
+
+/* ============================================================================
+   END NODE - Circular gradient
+   ============================================================================ */
+
+.node--end {
+  width: 88px;
+  height: 88px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  border-radius: 50%;
+  box-shadow: 
+    0 4px 12px rgba(239, 68, 68, 0.4),
+    0 1px 3px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.15);
+  position: relative;
+  overflow: hidden;
+}
+
+.node--end::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 50%;
+  background: radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.15) 0%, transparent 70%);
+}
+
+.node--end:hover {
+  box-shadow: 
+    0 8px 20px rgba(239, 68, 68, 0.6),
+    0 2px 6px rgba(0, 0, 0, 0.3);
+}
+
+.node--end .node__label {
+  display: none;
+}
+
+.node--end .node__icon {
+  font-size: 1.75rem;
+}
+
+/* ============================================================================
+   NODE ACTIONS (Edit/Delete buttons)
+   ============================================================================ */
+
+.node-actions {
+  position: absolute;
+  top: -3rem;
+  right: 0;
+  display: flex;
+  gap: 0.5rem;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity var(--transition-base) 100ms, transform var(--transition-base);
+  pointer-events: none;
+}
+
+/* Hover bridge for actions */
+.node-actions::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  height: 15px;
+  pointer-events: all;
+}
+
+.node-wrapper:hover .node-actions,
+.node-actions:hover {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: all;
+}
+
+.node-action {
+  width: 2.25rem;
+  height: 2.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(30, 41, 59, 0.95);
+  backdrop-filter: blur(8px);
+  border: 1.5px solid var(--color-border);
+  border-radius: 0.5rem;
+  color: var(--color-text);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+  font-size: 1.125rem;
+  box-shadow: var(--shadow-md);
+}
+
+.node-action:hover {
+  transform: scale(1.15) translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+.node-action--edit:hover {
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.5);
+}
+
+.node-action--delete:hover {
+  background: var(--color-danger);
+  border-color: var(--color-danger);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.5);
+}
+
+/* ============================================================================
+   ADD CHILD BUTTONS
+   ============================================================================ */
+
+.node-add-children {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  margin-top: 0.5rem;
+  opacity: 0;
+  transform: translateX(-50%) translateY(-10px);
+  transition: opacity var(--transition-base) 100ms, transform var(--transition-base);
+  pointer-events: none;
+}
+
+/* Hover bridge - invisible area that keeps the hover active */
+.node-add-children::before {
+  content: '';
+  position: absolute;
+  bottom: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 20px;
+  pointer-events: all;
+}
+
+.node-wrapper:hover .node-add-children,
+.node-add-children:hover {
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  pointer-events: all;
+}
+
+.node-add-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.625rem 1.25rem;
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  border: none;
+  border-radius: 2rem;
+  color: #ffffff;
+  cursor: pointer;
+  font-size: 0.875rem;
+  font-weight: 600;
+  transition: all var(--transition-base);
+  box-shadow: 
+    0 4px 12px rgba(99, 102, 241, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  white-space: nowrap;
+  animation: pulseGlow 2s ease-in-out infinite;
+}
+
+@keyframes pulseGlow {
+  0%, 100% {
+    box-shadow: 
+      0 4px 12px rgba(99, 102, 241, 0.4),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+  50% {
+    box-shadow: 
+      0 6px 20px rgba(99, 102, 241, 0.6),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+.node-add-button:hover {
+  transform: scale(1.08) translateY(-2px);
+  box-shadow: 
+    0 8px 24px rgba(99, 102, 241, 0.6),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  animation: none;
+}
+
+.node-add-button:active {
+  transform: scale(1.02);
+}
+
+.node-add-button__icon {
+  font-size: 1.25rem;
+  font-weight: bold;
+}
+
+.node-add-button__label {
+  font-size: 0.8125rem;
+}
+
+/* Branch Add Buttons */
+.node-add-branches {
+  display: flex;
+  gap: 0.625rem;
+}
+
+.node-add-button--branch {
+  padding: 0.5rem 1rem;
+  font-size: 0.8125rem;
+}
+
+.node-add-button--branch .node-add-button__icon {
+  font-size: 1.125rem;
+}
+
+/* Special handling for branch node actions */
+.node--branch .node-actions {
+  transform: rotate(-45deg) translateY(10px);
+}
+
+.node--branch:hover .node-actions,
+.node--branch .node-actions:hover {
+  transform: rotate(-45deg) translateY(0);
+}
+
+.node--branch .node-action {
+  transform: rotate(45deg);
+}
+
+.node--branch .node-action:hover {
+  transform: rotate(45deg) scale(1.15) translateY(-2px);
+}
