@@ -48,17 +48,15 @@ export const NodeWrapper = ({
 
       {/* Action buttons */}
       <div className="node-actions">
-        {node.type !== NODE_TYPES.START && (
-          <button
-            className="node-action node-action--edit"
-            onClick={handleEditClick}
-            title="Edit node"
-            aria-label="Edit node"
-            data-testid="edit-node-button"
-          >
-            ✎
-          </button>
-        )}
+        <button
+          className="node-action node-action--edit"
+          onClick={handleEditClick}
+          title="Edit node"
+          aria-label="Edit node"
+          data-testid="edit-node-button"
+        >
+          ✎
+        </button>
         
         {canDelete && (
           <button
