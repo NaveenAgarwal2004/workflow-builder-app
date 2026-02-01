@@ -2,7 +2,7 @@
 
 > A production-grade visual workflow builder built with React and pure CSS. Zero UI library dependencies, maximum performance and polish.
 
-[![Live Demo](https://img.shields.io/badge/demo-live-success)](your-deployed-url)
+[![Live Demo](https://img.shields.io/badge/demo-live-success)]([your-deployed-url](https://workflow-builder-app-nine.vercel.app/))
 [![React](https://img.shields.io/badge/React-18.2-blue)](https://reactjs.org/)
 [![Pure CSS](https://img.shields.io/badge/styling-Pure%20CSS-purple)](https://developer.mozilla.org/en-US/docs/Web/CSS)
 
