@@ -91,8 +91,6 @@ export const getConnectionPoints = (parentPos, childPos, parentType, childType) 
   
   const childSize = childType === NODE_TYPES.BRANCH ? LAYOUT.BRANCH_NODE_SIZE :
                     childType === NODE_TYPES.END ? LAYOUT.END_NODE_SIZE : LAYOUT.NODE_WIDTH;
-  const childHeight = childType === NODE_TYPES.BRANCH ? LAYOUT.BRANCH_NODE_SIZE :
-                      childType === NODE_TYPES.END ? LAYOUT.END_NODE_SIZE : LAYOUT.NODE_HEIGHT;
 
   // Start point (bottom center of parent)
   const startX = parentPos.x + parentSize / 2;
