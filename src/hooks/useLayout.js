@@ -6,7 +6,6 @@ export const useLayout = (nodes, rootId, version = 0) => {
 
   // Recalculate layout whenever nodes, rootId, or version changes
   useEffect(() => {
-    console.log('🔄 Layout recalculating - version:', version, 'node count:', Object.keys(nodes).length);
     const newPositions = calculateLayout(nodes, rootId);
     setPositions(newPositions);
   }, [nodes, rootId, version]);

@@ -44,8 +44,6 @@ export const addNode = (state, parentId, nodeType, branchLabel = null) => {
     version: (state.version || 0) + 1, // INCREMENT VERSION
   };
 
-  console.log('✅ Node added! Version:', newState.version, 'Total nodes:', Object.keys(newState.nodes).length);
-
   return newState;
 };
 

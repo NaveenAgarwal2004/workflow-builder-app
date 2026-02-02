@@ -30,6 +30,10 @@ export const WorkflowCanvas = ({
 
     Object.entries(positions).forEach(([nodeId, pos]) => {
       const node = state.nodes[nodeId];
+      
+      // Safety check: skip if node doesn't exist
+      if (!node) return;
+      
       let width = 200, height = 80;
 
       if (node.type === NODE_TYPES.BRANCH) {
@@ -112,10 +116,13 @@ export const WorkflowCanvas = ({
   // Adjust positions for rendering
   const adjustedPositions = {};
   Object.entries(positions).forEach(([nodeId, pos]) => {
-    adjustedPositions[nodeId] = {
-      x: pos.x + bounds.offsetX,
-      y: pos.y + bounds.offsetY,
-    };
+    // Only adjust if node exists in current state
+    if (state.nodes[nodeId]) {
+      adjustedPositions[nodeId] = {
+        x: pos.x + bounds.offsetX,
+        y: pos.y + bounds.offsetY,
+      };
+    }
   });
 
   return (

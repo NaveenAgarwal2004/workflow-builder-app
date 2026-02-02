@@ -37,8 +37,6 @@ export const useWorkflowState = () => {
 
   // Push new state to history
   const pushHistory = useCallback((newState) => {
-    console.log('📝 pushHistory - version:', newState.version, 'nodes:', Object.keys(newState.nodes).length);
-    
     const currentHistory = historyRef.current;
     const currentIndex = historyIndexRef.current;
     
@@ -54,8 +52,6 @@ export const useWorkflowState = () => {
       setHistoryIndex(newHistory.length - 1);
       setState(newState);
     });
-    
-    console.log('✅ Updated!');
   }, []); // No dependencies!
 
   // Add node - use ref to get latest state
